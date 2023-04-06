@@ -1,3 +1,5 @@
+<h2><b>Rails Blog App</b></h2>
+<img src="img//blog_app_erd.png" alt="logo" width="640"  height="auto" />
 <a name="readme-top"></a>
 
 <!-- TABLE OF CONTENTS -->
@@ -23,7 +25,6 @@
 
 **Blog App** The Blog app is classic example of a blog website. A fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-* Services (job queues, cache servers, search engines, etc.)
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -123,9 +124,17 @@ rails server
 
 We will implement this on the future:
 
-- [ ] **Users can login to blog app**
-- [ ] **Users can add a post**
-- [ ] **Users can see a post list**
+- [ ]  2: Controllers specs.
+- [ ]  3: Creating a data model.
+- [ ]  4: Processing data in models.
+- [ ]  5: Views.
+- [ ]  6: Forms
+- [ ]  7: Validations, Model specs, and n+1 problems.
+- [ ]  8: Add Devise.
+- [ ]  9: Add authorization rules.
+- [ ]  10: Integration specs for Views.
+- [ ]  11: Add API endpoints.
+- [ ]  Exercise: API documentation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
