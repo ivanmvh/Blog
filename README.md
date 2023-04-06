@@ -1,4 +1,4 @@
-<h2><b>Rails Blog App 1</b></h2>
+<h2><b>Rails Blog App</b></h2>
 <img src="img//blog_app_erd.png" alt="logo" width="640"  height="auto" />
 <a name="readme-top"></a>
 
