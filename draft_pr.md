@@ -7,23 +7,23 @@
 - Use database migration files to maintain database schema.
 
 ## Description
-In this project, you will use migration files to build your schema.
+In this project, we will use migration files to build our schema.
 
 ### General requirements
 
 - Make sure that there are no linter errors.
-- Make sure that you used correct flow Gitflow.
-- Make sure that you documented your work in a professional way.
+- Make sure that we used correct flow Gitflow.
+- Make sure that we documented our work in a professional way.
 - Follow our list of best practices for Ruby.
 
 
 ### Project requirements
-Be sure to reference the [ERD diagram] from the sneak peek if you have any questions about table or column names or data relationships.
+Be sure to reference the [ERD diagram] from the sneak peek if we have any questions about table or column names or data relationships.
 
 - Create a new app. Give it a meaningful name.
-- Initialize your project with Git.
-- Make sure that your project has Postgres database set up.
-- Build your project schema.
+- Initialize our project with Git.
+- Make sure that our project has Postgres database set up.
+- Build our project schema.
     - Create and run the necessary migration files.
     - Table and column names should match the ERD diagram.
         - note: photo for users table should be a link to an image
