@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Like, type: :model do
+describe Like, type: :model do
   user = User.create(name: 'jinx', photo: 'link', bio: 'player', posts_counter: 0)
   post = Post.create(author: user, title: 'Vacation', text: 'Bluest beach on hawai!', comments_counter: 0,
                      likes_counter: 0)
