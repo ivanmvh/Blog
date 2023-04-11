@@ -11,10 +11,10 @@ In this project, we will create all controllers and views for our Blog app. As w
 -  Take a look at the wireframes below. Make sure that our app handles the URLs used in the wireframes:  
 
 <p align="center">
-  <img src="img/blog_root_users.png" alt="All users page wireframe"  width="25%"  />
-  <img src="img/blog_user_page.png" alt="Single user page wireframe"  width="25%"  />
-  <img src="img/blog_user_all_posts.png" alt="All posts by a given user page wireframe"  width="25%"  />
-  <img src="img/blog_single_post.png" alt="Single post page wireframe"  width="25%"  />
+  <img src="img/blog_root_users.png" alt="All users page wireframe"  width="24.5%"  />
+  <img src="img/blog_user_page.png" alt="Single user page wireframe"  width="24.5%"  />
+  <img src="img/blog_user_all_posts.png" alt="All posts by a given user page wireframe"  width="24.5%"  />
+  <img src="img/blog_single_post.png" alt="Single post page wireframe"  width="24.5%"  />
 </p>
 
 -  For each URL we should create:
