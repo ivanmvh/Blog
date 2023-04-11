@@ -23,7 +23,22 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-**Blog App** The Blog app is classic example of a blog website. A fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+The Blog app is classic example of a blog website. A fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+
+Here is the list of projects to be developed. For each will be a Pull Request.
+
+- Project 1: Creating a data model.
+- Project 2: Validations and Model specs.
+- Project 3: Processing data in models.
+- Project 4: Setup and controllers.
+- Project 5: Controllers specs.
+- Project 6: Views.
+- Project 7: Forms.
+- Project 8: Integration specs for Views and fixing n+1 problems.
+- Project 9: Add Devise.
+- Project 10: Add authorization rules.
+- Project 11: Add API endpoints.
+- Exercise: API documentation.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -123,18 +138,6 @@ rails server
 ## 🔭 Future Features <a name="future-features"></a>
 
 We will implement this on the future:
-
-- [ ]  2: Controllers specs.
-- [ ]  3: Creating a data model.
-- [ ]  4: Processing data in models.
-- [ ]  5: Views.
-- [ ]  6: Forms
-- [ ]  7: Validations, Model specs, and n+1 problems.
-- [ ]  8: Add Devise.
-- [ ]  9: Add authorization rules.
-- [ ]  10: Integration specs for Views.
-- [ ]  11: Add API endpoints.
-- [ ]  Exercise: API documentation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
