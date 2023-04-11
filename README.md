@@ -23,7 +23,7 @@
 
 # 📖 Blog App <a name="about-project"></a>
 
-**Blog App** The Blog app is classic example of a blog website. A fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+The Blog app is classic example of a blog website. A fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
 Here is the list of projects to be developed. For each will be a Pull Request.
 
