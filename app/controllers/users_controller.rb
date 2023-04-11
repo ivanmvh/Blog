@@ -1,3 +1,5 @@
 class UsersController < ApplicationController
-  def show; end
+  def show
+    render :show
+  end
 end
