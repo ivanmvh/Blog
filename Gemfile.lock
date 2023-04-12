@@ -188,6 +188,8 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    ruby-debug-ide (0.7.3)
+      rake (>= 0.8.1)
     rubyzip (2.3.2)
     selenium-webdriver (4.8.6)
       rexml (~> 3.2, >= 3.2.5)
@@ -243,6 +245,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-controller-testing
   rspec-rails
+  ruby-debug-ide (~> 0.7.3)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
