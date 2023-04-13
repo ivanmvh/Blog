@@ -14,10 +14,9 @@
  *= require_self
  */
 
-
 * {
   font-size: 3.5vw;
-} 
+}
 
 .button {
   width: fit-content;
@@ -103,13 +102,13 @@ li {
 
 .text {
   margin: 0 1vw;
-  font-size: 3.0vw;
+  font-size: 3vw;
 }
 
 .comments {
   align-self: flex-end;
   margin: 0 1vw 1vw 0;
-  font-size: 3.0vw;
+  font-size: 3vw;
 }
 
 .recent_comments {
@@ -125,7 +124,7 @@ li {
 .comment {
   margin: 0 1vw;
   margin-left: 1vw;
-  font-size: 3.0vw;
+  font-size: 3vw;
 }
 
 .post_header {
@@ -136,11 +135,11 @@ li {
 }
 
 .counters {
-  font-size: 3.0vw;
+  font-size: 3vw;
   margin-right: 1vw;
 }
 
 .comments_tit {
   margin: 0.2vw 0 0 1vw;
-  font-size: 3.0vw;
+  font-size: 3vw;
 }
