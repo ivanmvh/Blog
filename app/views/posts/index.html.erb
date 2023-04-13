@@ -4,7 +4,7 @@
   <% comments = Post.recent_comments(post.title) %>
     <li><%= link_to render('post_card', post: post, i: i), user_post_path(@posts[0].author, post) %></li>
     <div class="recent_comments border">
-    <h3 class="comments_tit">Comments:</h3>
+    <h3 class="comments_tit">5 Most Recent Comments:</h3>
     <%comments.each do |comment| %>
       <li class="comment">
       <%= comment.author.name %>:
