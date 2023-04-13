@@ -1,4 +1,19 @@
-<h1>Information from a user post</h1>
-<h2>app/views/post/show.html.erb</h2>
-<h2><%= __FILE__ %></h2>
-<h2><%= File.basename(__FILE__)%></h2>
+
+<div class="border post_card  bio">
+<div class="post_header">
+<p> Post #<%= @post.id %> by <%= @post.author.name%> </p>
+<p class="counters">Comments: <%= @post.comments_counter %> Likes: <%= @post.likes_counter%></p>
+</div>
+<p><%= @post.text %></p>
+</div>
+<div class="border recent_comments">
+    <h3 class="comments_tit">Comments:</h3>
+    <%@comments.each do |comment| %>
+      <li>
+      <div>
+      <%= comment.author.name %>:
+      <%= comment.text %>
+      </div>
+      </li>
+      <% end %>
+</div>
