@@ -1,4 +1,14 @@
-<h1>Information of a User</h1>
-<h2>app/views/users/show.html.erb</h2>
-<h2><%= __FILE__ %></h2>
-<h2><%= File.basename(__FILE__)%></h2>
+<%= render 'user_card', user: @user %>
+<div class="bio border">
+<h3>Bio</h3>
+<p><%= @user.bio %></p>
+</div>
+<ul>
+  <% posts = User.most_recent_posts(@user.name) %>
+  <% posts.all.each_with_index do |post, i| %>
+    <li><%= render('posts/post_card', post: post, i: i) %></li>
+  <% end %>
+</ul>
+<div class="button border">
+<%= link_to 'See all posts', user_posts_path(@user) %>
+</div>
