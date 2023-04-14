@@ -13,3 +13,133 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  font-size: 3.5vw;
+}
+
+.button {
+  width: fit-content;
+  height: auto;
+  padding: 4px;
+  box-shadow: 2px 2px 2px black;
+  margin: auto;
+}
+
+.button:hover {
+  box-shadow: 8px 4px 4px black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.border {
+  border: 2px solid black;
+}
+
+.user_card {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 1vw 3vw;
+}
+
+.user_name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.3vw 3vw 0.3vw 0;
+}
+
+.user_name h2 {
+  font-size: 4.5vw;
+  margin-left: 1vw;
+}
+
+.user_name p {
+  height: auto;
+  align-self: flex-end;
+  font-size: 3.5vw;
+  margin-right: 1vw;
+}
+
+.user_picture {
+  width: 30vw;
+  margin: 1.5vw;
+  border: none;
+  padding: 0;
+}
+
+.bio {
+  margin: 0.5vw 3vw 1.3vw 3vw;
+  font-size: 3.5vw;
+}
+
+.bio * {
+  margin-left: 1vw;
+}
+
+.post_card {
+  margin: 0.5vw 3vw;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.post_card h3 {
+  margin: 0.2vw 0 1vw 1vw;
+}
+
+.text {
+  margin: 0 1vw;
+  font-size: 3vw;
+}
+
+.comments {
+  align-self: flex-end;
+  margin: 0 1vw 1vw 0;
+  font-size: 3vw;
+}
+
+.recent_comments {
+  margin: 0 3vw 2vw 3vw;
+  margin-top: 0;
+  padding: 0 0;
+}
+
+.recent_comments li {
+  margin-left: 1vw;
+}
+
+.comment {
+  margin: 0 1vw;
+  margin-left: 1vw;
+  font-size: 3vw;
+}
+
+.post_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.counters {
+  font-size: 3vw;
+  margin-right: 1vw;
+}
+
+.comments_tit {
+  margin: 0.2vw 0 0 1vw;
+  font-size: 3vw;
+}

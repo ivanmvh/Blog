@@ -1,4 +1,19 @@
-<h1>List of posts of a user</h1>
-<h2>app/views/post/index.html.erb</h2>
-<h2><%= __FILE__ %></h2>
-<h2><%= File.basename(__FILE__)%></h2>
+<%= render 'users/user_card', user: @posts[0].author %>
+<ul>
+  <% @posts.all.each_with_index do |post, i| %>
+  <% comments = Post.recent_comments(post.title) %>
+    <li><%= link_to render('post_card', post: post, i: i), user_post_path(@posts[0].author, post) %></li>
+    <div class="recent_comments border">
+    <h3 class="comments_tit">5 Most Recent Comments:</h3>
+    <%comments.each do |comment| %>
+      <li class="comment">
+      <%= comment.author.name %>:
+      <%= comment.text %>
+      </li>
+      <% end %>
+    <div>
+    </div>
+    </div>
+  <% end %>
+</ul>
+<div class="button border">Pagination</div>

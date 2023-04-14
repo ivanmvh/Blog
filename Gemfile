@@ -68,6 +68,10 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  ## pry debug
+  # gem 'pry_rails'
+  ## end pry debug
 end
 
 group :test do
@@ -76,6 +80,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
 
 # gem "ruby-debug-ide", "~> 0.7.3"
