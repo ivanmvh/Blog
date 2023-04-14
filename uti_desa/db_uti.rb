@@ -13,3 +13,5 @@ Like.new(author: user, post:)
 
 # p1 = Post.new(author: 2, title: 'Post Title  2-1', text: 'text 2-1', comments_counter: 0, likes_counter: 0)
 # u2 = User.find(2)
+
+c1=Comment.new(post: p1, author: p1.author, text: 'text-comment-10')
