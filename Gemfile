@@ -56,7 +56,7 @@ group :development, :test do
   gem 'rspec-rails'
   ## This are for the debuggerbundle install
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem "ruby-debug-ide"
+  gem 'ruby-debug-ide'
   # gem "debase", "~> 0.2.4"
   gem 'debase', '0.2.5.beta2'
   ## end debugger gems

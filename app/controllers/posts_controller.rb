@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts
-    render :index
+    redirect_to :root, alert: 'Warning: No posts' unless @posts.length.positive?
   end
 
   def show
