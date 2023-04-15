@@ -83,5 +83,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-# gem "ruby-debug-ide", "~> 0.7.3"
