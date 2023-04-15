@@ -1,0 +1,5 @@
+  <%= bootstrap_form_with model: @post, url: user_posts_path, method: :post, local: true ,layout: :horizontal , label_col: "col-sm-2", control_col: "col-sm-10" do |f|%>
+    <%= f.text_field  :title %>
+    <%= f.text_area :text %>
+    <%= f.submit %>
+  <%end%>

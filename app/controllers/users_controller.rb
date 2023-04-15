@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
-    p @users = User.all
-    # render :index
+    @users = User.all
+    render :index
   end
 
   def show

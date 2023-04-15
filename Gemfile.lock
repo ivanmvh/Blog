@@ -71,6 +71,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    bootstrap_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     builder (3.2.4)
     capybara (3.39.0)
       addressable
@@ -84,6 +87,9 @@ GEM
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
+    debase (0.2.5.beta2)
+      debase-ruby_core_source (>= 0.10.12)
+    debase-ruby_core_source (3.2.0)
     debug (1.7.2)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
@@ -236,7 +242,9 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bootstrap_form (~> 5.1)
   capybara
+  debase (= 0.2.5.beta2)
   debug
   importmap-rails
   jbuilder
@@ -245,7 +253,7 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-controller-testing
   rspec-rails
-  ruby-debug-ide (~> 0.7.3)
+  ruby-debug-ide
   selenium-webdriver
   sprockets-rails
   stimulus-rails
