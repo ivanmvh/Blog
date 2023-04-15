@@ -54,10 +54,11 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  ## This are for the debugger
+  ## This are for the debuggerbundle install
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  # gem "ruby-debug-ide", "~> 0.7.3"
+  gem "ruby-debug-ide"
   # gem "debase", "~> 0.2.4"
+  gem 'debase', '0.2.5.beta2'
   ## end debugger gems
 end
 
