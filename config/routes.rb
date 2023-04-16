@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post '/users/:user_id/posts/:id', to: 'comments#create'
   get '/users/:user_id/posts/:id/comments/new', to: 'comments#new', as: 'new_comment'
   post '/users/:user_id/posts/:id/likes', to: 'likes#create', as: 'add_like'
+  get '/hellos', to: 'hellos#index', as: 'hellos'
 end
