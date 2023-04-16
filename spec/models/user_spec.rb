@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  subject { User.new(name: 'name-1', photo: 'photo-1', bio: 'Bio message 1', posts_counter: 0) }
+  subject { User.new(name: 'name-1', photo: '1-photo', bio: 'Bio message 1', posts_counter: 0) }
 
   before { subject.save }
 

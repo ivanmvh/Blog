@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Post, type: :model do
   subject do
     Post.new(
-      author: User.new(name: 'name-user-1', photo: 'photo-1', bio: 'bio-1'),
+      author: User.new(name: 'name-user-1', photo: '1-photo', bio: 'bio-1'),
       title: 'post title 1',
       text: 'posts text 1',
       comments_counter: 0,

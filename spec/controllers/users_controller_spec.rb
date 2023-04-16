@@ -16,18 +16,18 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'renders the correct template' do
-        get :show, params: { id: 4 }
+        get :show, params: { id: 1 }
         expect(response).to render_template(:show)
       end
 
       it 'renders the view with the correct placeholder text' do
         get :index
-        expect(response.body).to include('List of users')
+        expect(response.body).to include('Users List')
       end
 
       it 'renders the view with the correct placeholder text' do
-        get :show, params: { id: 4 }
-        expect(response.body).to include('Information of a User')
+        get :show, params: { id: 1 }
+        expect(response.body).to include('Users Info')
       end
     end
   end

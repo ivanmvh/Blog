@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Like, type: :model do
-  user = User.create(name: 'jinx', photo: 'link', bio: 'player', posts_counter: 0)
+  user = User.create(name: 'jinx', photo: '1-photo', bio: 'player', posts_counter: 0)
   post = Post.create(author: user, title: 'Vacation', text: 'Bluest beach on hawai!', comments_counter: 0,
                      likes_counter: 0)
   subject { Like.new(author: user, post:) }
