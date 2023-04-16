@@ -1,0 +1,30 @@
+How install capybara for rails in windows 10 ?
+
+To install Capybara for Rails on Windows 10, you can follow these steps:
+
+    Install Ruby: Download Ruby installer from https://rubyinstaller.org/downloads/ and follow the installation process.
+
+    Install DevKit: Download the DevKit for your version of Ruby from https://rubyinstaller.org/downloads/ and extract it to a directory like C:\DevKit.
+
+    Install Bundler: Open a command prompt and type gem install bundler to install the Bundler gem.
+
+    Create a new Rails application: Open a command prompt, navigate to the directory where you want to create your Rails application and type rails new myapp to create a new Rails application.
+
+    Add Capybara to your Gemfile: Open the Gemfile in your Rails application directory and add gem 'capybara' to the file.
+
+    Install Capybara: Open a command prompt, navigate to your Rails application directory and type bundle install to install Capybara and its dependencies.
+
+    Configure Capybara: Open the test_helper.rb file in your Rails application directory and add the following lines:
+
+ruby
+
+require 'capybara/rails'
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+end
+
+This will include Capybara in your integration tests.
+
+    Test Capybara: Run your Rails test suite using the command rails test to verify that Capybara is installed and working correctly.
+
+That's it! You should now be able to use Capybara in your Rails application on Windows 10.
