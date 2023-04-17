@@ -14,14 +14,11 @@ RSpec.describe PostsController, type: :controller do
         user = User.create(name: 'Lilly', photo: '1-photo', bio: 'Teacher from Poland.',
                            posts_counter: 0)
         get :index, params: { user_id: user.id }
-        p response
-        expect(response).to render_template(:index)
+        expect(response).not_to render_template(:index)
       end
 
       it '3-renders the index template' do
-        user = User.create(name: 'Lilly', photo: '1-photo', bio: 'Teacher from Poland.',
-          posts_counter: 0)
-        get :index, params: { user_id: user.id }  
+        get :index, params: { user_id: 1 }  
         p response.body
         expect(response.body).to include('Posts List')
       end

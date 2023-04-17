@@ -8,11 +8,11 @@ describe Like, type: :model do
 
   before { subject.save }
 
-  it 'like correctly created' do
+  it '1-like correctly created' do
     expect(subject).to be_valid
   end
 
-  it 'should increment likes counter for post' do
+  it '2-should increment likes counter for post' do
     prev_counter = subject.post.likes_counter
     subject.update_likes_counter
     expect(subject.post.likes_counter) == prev_counter + 1

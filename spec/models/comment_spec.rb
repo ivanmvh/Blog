@@ -8,11 +8,11 @@ describe Comment, type: :model do
 
   before { subject.save }
 
-  it 'comment correctly created' do
+  it '1-comment correctly created' do
     expect(subject).to be_valid
   end
 
-  it 'should increment comments counter for post' do
+  it '2-should increment comments counter for post' do
     prev_counter = subject.post.comments_counter
     subject.update_comments_counter
     expect(subject.post.comments_counter) == prev_counter + 1

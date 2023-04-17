@@ -5,26 +5,26 @@ describe User, type: :model do
 
   before { subject.save }
 
-  it 'can not miss the name' do
+  it '1-can not miss the name' do
     subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it 'the name must be filled' do
+  it '2-the name must be filled' do
     expect(subject).to be_valid
   end
 
-  it 'post_counter should be positive' do
+  it '3-post_counter should be positive' do
     subject.posts_counter = -1
     expect(subject).to_not be_valid
   end
 
-  it 'post_counter can\'t be an alphabet ' do
+  it '4-post_counter can\'t be an alphabet ' do
     subject.posts_counter = 'ABC'
     expect(subject).to_not be_valid
   end
 
-  it 'shows at most 3 most recent posts' do
+  it '5-shows at most 3 most recent posts' do
     subject.posts = [
       Post.new(author: subject, title: 'Post Title  1', text: 'text 1', comments_counter: 0, likes_counter: 0),
       Post.new(author: subject, title: 'Post Title  2', text: 'text 2', comments_counter: 0, likes_counter: 0),
@@ -38,7 +38,7 @@ describe User, type: :model do
     expect(subject.most_recent_posts.length).to eql(3)
   end
 
-  it 'check the content of most recent records' do
+  it '6-check the content of most recent records' do
     subject.posts = [
       Post.new(author: subject, title: 'Post Title  1', text: 'text 1', comments_counter: 0, likes_counter: 0),
       Post.new(author: subject, title: 'Post Title  2', text: 'text 2', comments_counter: 0, likes_counter: 0),
