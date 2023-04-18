@@ -11,7 +11,6 @@ RSpec.describe 'users_index', type: :system do
                          posts_counter: 2)
   end
 
-  # if false
   it '1-I can see the username of all other users' do
     visit users_path
     expect(page).to have_content('John U Index')
@@ -37,15 +36,13 @@ RSpec.describe 'users_index', type: :system do
     expect(page).to have_content('Complete bio John U Index')
   end
 
-  it '4-A-When I click on a user, I am redirected to that user\'s show page' do
+  it '5-When I click on a user, I am redirected to that user\'s show page' do
     visit users_path
     click_link @user2.name
     expect(page).to have_current_path(user_path(@user2))
   end
 
-  # end
-
-  it '5-When I click on [Add a post], I am redirected to posts new page' do
+  it '6-When I click on [Add a post], I am redirected to posts new page' do
     @user1 = User.create(name: 'John U Index',
                          photo: '1-photo.jpg', bio: 'Complete bio John U Index', posts_counter: 0)
     @user2 = User.create(name: 'Pet U Index',
