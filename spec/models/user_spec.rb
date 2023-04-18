@@ -1,55 +1,67 @@
 require 'rails_helper'
 
-describe User, type: :model do
-  subject { User.new(name: 'name-1', photo: 'photo-1', bio: 'Bio message 1', posts_counter: 0) }
+RSpec.describe User, type: :model do
+  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mex', posts_counter: 0) }
 
   before { subject.save }
 
-  it 'can not miss the name' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  context 'name should be present' do
+    it 'Users name should be Tom' do
+      expect(subject.name).to eq('Tom')
+    end
+
+    it 'User should be valid' do
+      expect(subject).to be_valid
+    end
+
+    it 'User should be invalid if name = nil' do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
   end
 
-  it 'the name must be filled' do
-    expect(subject).to be_valid
+  context 'posts_counter should be  >= 0' do
+    it 'subject should be valid' do
+      expect(subject).to be_valid
+    end
+
+    it 'subject should be invalid if posts_counter = nil' do
+      subject.posts_counter = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'subject should be invalid if posts_counter is negative' do
+      subject.posts_counter = -3
+      expect(subject).to_not be_valid
+    end
   end
 
-  it 'post_counter should be positive' do
-    subject.posts_counter = -1
-    expect(subject).to_not be_valid
-  end
+  context 'the method recent_posts should return the last 3 post of a specific user' do
+    it 'recent_posts should return 3 elemets' do
+      user2 = User.create(name: 'casimiro', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Pol',
+                          posts_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
 
-  it 'post_counter can\'t be an alphabet ' do
-    subject.posts_counter = 'ABC'
-    expect(subject).to_not be_valid
-  end
+      expect(User.recent_posts('casimiro').length).to eql 3
+    end
 
-  it 'shows at most 3 most recent posts' do
-    subject.posts = [
-      Post.new(author: subject, title: 'Post Title  1', text: 'text 1', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  2', text: 'text 2', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  3', text: 'text 3', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  4', text: 'text 4', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  5', text: 'text 5', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  6', text: 'text 6', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  7', text: 'text 7', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  8', text: 'text 8', comments_counter: 0, likes_counter: 0)
-    ]
-    expect(subject.most_recent_posts.length).to eql(3)
-  end
-
-  it 'check the content of most recent records' do
-    subject.posts = [
-      Post.new(author: subject, title: 'Post Title  1', text: 'text 1', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  2', text: 'text 2', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  3', text: 'text 3', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  4', text: 'text 4', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  5', text: 'text 5', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  6', text: 'text 6', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  7', text: 'text 7', comments_counter: 0, likes_counter: 0),
-      Post.new(author: subject, title: 'Post Title  8', text: 'text 8', comments_counter: 0, likes_counter: 0)
-    ]
-    expect(subject.most_recent_posts.first.text).to eql('text 8')
-    expect(subject.most_recent_posts.last.text).to eql('text 6')
+    it 'the fist element should be most recent than the lastone' do
+      user2 = User.create(name: 'casimiro', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Pol',
+                          posts_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      user2.posts.create(author: subject, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      expect(User.recent_posts('casimiro')[0].created_at).to be > User.recent_posts('casimiro')[2].created_at
+    end
   end
 end

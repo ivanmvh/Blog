@@ -60,6 +60,10 @@ group :development, :test do
   # gem "debase", "~> 0.2.4"
   gem 'debase', '0.2.5.beta2'
   ## end debugger gems
+  # capybara - selenium - bdt
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -79,7 +83,4 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
 end

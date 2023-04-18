@@ -1,66 +1,97 @@
 require 'rails_helper'
 
-describe Post, type: :model do
+RSpec.describe Post, type: :model do
   subject do
-    Post.new(
-      author: User.new(name: 'name-user-1', photo: 'photo-1', bio: 'bio-1'),
-      title: 'post title 1',
-      text: 'posts text 1',
-      comments_counter: 0,
-      likes_counter: 0
-    )
-  end
-  before { subject.save }
-
-  it 'title should be present' do
-    subject.title = nil
-    expect(subject).to_not be_valid
+    author = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                      posts_counter: 0)
+    Post.new(author:, title: 'pacualito', text: 'This is my first post', comments_counter: 0, likes_counter: 0)
   end
 
-  it 'title should not exceed 250 characters' do
-    long_title = 'A' * 260
-    subject.title = long_title
-    expect(subject).to_not be_valid
+  context 'title should be correct' do
+    it 'post title should be pacualito' do
+      expect(subject.title).to eq('pacualito')
+    end
+
+    it 'post should be valid' do
+      expect(subject).to be_valid
+    end
+
+    it 'post should be invalid if title = nil' do
+      subject.title = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'post should be invalid if title length > 250 characters' do
+      subject.title = '
+      The Enthralling Adventure of the Fearless Explorer
+      Who Traversed the Majestic Mountains, Brave Forests, and Turbulent
+      Seas to Reach the Farthest Reaches of the Earth, Discovering
+      Unimaginable Wonders and Meeting Fascinating Cultures Along
+      the Way...................
+      '
+      expect(subject).to_not be_valid
+    end
   end
 
-  it 'comments_counter should be positive' do
-    subject.comments_counter = -1
-    expect(subject).to_not be_valid
+  context 'comments_counter should be  >= 0' do
+    it 'post should be valid' do
+      subject.title = 'Hello'
+      expect(subject).to be_valid
+    end
+
+    it 'post should be invalid if comments_counter = nil' do
+      subject.comments_counter = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'post should be invalid if comments_counter is negative' do
+      subject.comments_counter = -3
+      expect(subject).to_not be_valid
+    end
   end
 
-  it 'likes_counter should be positive' do
-    subject.likes_counter = -1
-    expect(subject).to_not be_valid
+  context 'likes_counter should be  >= 0' do
+    it 'post should be valid' do
+      subject.comments_counter = 0
+      expect(subject).to be_valid
+    end
+
+    it 'post should be invalid if likes_counter = nil' do
+      subject.likes_counter = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'post should be invalid if likes_counter is negative' do
+      subject.likes_counter = -3
+      expect(subject).to_not be_valid
+    end
   end
 
-  it 'shows at 5 most recent comments' do
-    subject.comments = [
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-1'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-2'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-3'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-5'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-6'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-7')
-    ]
-    expect(subject.most_recent_comments.length).to eql(5)
-  end
+  context 'the method recent_comments should return the last 5 comments of a specific post' do
+    it 'recent_comments should return 5 elemets' do
+      user2 = User.create(name: 'Met Post', photo: '1-photo.jpg', bio: 'Teacher from Pol',
+                          posts_counter: 0)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
 
-  it 'check the content of most recent comments' do
-    subject.comments = [
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-1'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-2'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-3'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-5'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-6'),
-      Comment.new(post: subject, author: subject.author, text: 'text-comment-7')
-    ]
-    expect(subject.most_recent_comments.first.text).to eql('text-comment-7')
-    expect(subject.most_recent_comments.last.text).to eql('text-comment-2')
-  end
+      expect(Post.recent_comments('pacualito').length).to eql 5
+    end
 
-  it 'should increment post counter for the author' do
-    initial_counter = subject.author.posts_counter
-    subject.update_post_counter
-    expect(subject.author.posts_counter) == initial_counter + 1
+    it 'the fist element should be most recent than the lastone' do
+      user2 = User.create(name: 'Met Post', photo: 'https://unsplash.com/ptos/F_-0BxGuVvo', bio: 'Teacher from Pol',
+                          posts_counter: 0)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+      user2.comments.create!(author: user2, post: subject)
+
+      expect(Post.recent_comments('pacualito')[0].created_at).to be > Post.recent_comments('pacualito')[2].created_at
+    end
   end
 end

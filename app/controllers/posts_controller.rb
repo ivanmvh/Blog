@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
-    redirect_to :root, alert: 'Warning: No posts' unless @posts.length.positive?
+    # @posts = @user.posts - Replaced to avoid n+1
+    @posts = @user.posts.includes(:comments, :author)
+    redirect_to :root, alert: "Warning: #{@user.name} no has posts" unless @posts.length.positive?
   end
 
   def show

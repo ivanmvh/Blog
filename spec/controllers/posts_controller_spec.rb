@@ -1,35 +1,53 @@
 require 'rails_helper'
 
-RSpec.describe PostsController, type: :controller do
-  render_views
-
+RSpec.describe PostsController, type: :request do
   describe 'GET /show' do
     context 'posts should render correctly' do
-      it 'renders a successful response' do
-        get :index, params: { user_id: 3 }
+      user = User.create(name: 'Poly Connor', photo: '5-photo.jpg',
+                         bio: 'Teacher from Poland.', posts_counter: 0)
+      post = Post.create(author: user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                         likes_counter: 0)
+      it '1-renders a successful response' do
+        get "/users/#{user.id}/posts"
         expect(response).to be_successful
       end
 
-      it 'renders the index template' do
-        user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
-                           posts_counter: 0)
-        get :index, params: { user_id: user.id }
+      it '2-renders the index template' do
+        user = User.create(name: 'Poly Connor', photo: '5-photo.jpg',
+                           bio: 'Teacher from Poland.', posts_counter: 0)
+        post = Post.create(author: user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                           likes_counter: 0)
+        get "/users/#{user.id}/posts"
         expect(response).to render_template(:index)
       end
 
-      it 'renders the index template' do
-        get :index, params: { user_id: 5 }
-        expect(response.body).to include('List of posts')
+      it '3-renders the index template' do
+        user = User.create(name: 'Poly Connor', photo: '5-photo.jpg',
+                           bio: 'Teacher from Poland.', posts_counter: 0)
+        post = Post.create(author: user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                           likes_counter: 0)
+        get "/users/#{user.id}/posts"
+        expect(response.body).to include('Poly Connor')
       end
+    end
 
-      it 'renders the show template' do
-        get :show, params: { user_id: 5, id: 8 }
+    context 'posts should contain the correct information' do
+      it '4-renders the show template' do
+        user = User.create(name: 'Poly Connor', photo: '5-photo.jpg',
+                           bio: 'Teacher from Poland.', posts_counter: 0)
+        post = Post.create(author: user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                           likes_counter: 0)
+        get "/users/#{user.id}/posts/#{post.id}"
         expect(response).to render_template(:show)
       end
 
-      it 'renders the show template' do
-        get :show, params: { user_id: 1, id: 1 }
-        expect(response.body).to include('Information from a user post')
+      it '5-renders the show template' do
+        user = User.create(name: 'Poly Connor', photo: '5-photo.jpg',
+                           bio: 'Teacher from Poland.', posts_counter: 0)
+        post = Post.create(author: user, title: 'Hello', text: 'This is my first post', comments_counter: 0,
+                           likes_counter: 0)
+        get "/users/#{user.id}/posts/#{post.id}"
+        expect(response.body).to include('This is my first post')
       end
     end
   end
