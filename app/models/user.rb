@@ -3,9 +3,8 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id'
   has_many :likes, foreign_key: 'author_id'
 
-  def self.most_recent_posts(name)
-    x = Post.where(author_id: User.find_by(name:).id).order(created_at: :desc).limit(3)
-    p x
+  def self.recent_posts(name)
+    Post.where(author_id: User.find_by(name:).id).order(created_at: :desc).limit(3)
   end
 
   validates :name, presence: true
