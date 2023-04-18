@@ -4,8 +4,7 @@ class Post < ApplicationRecord
   has_many :comments
 
   def self.recent_comments(title)
-    x = Comment.where(post_id: Post.find_by(title:).id).order(created_at: :desc).limit(5)
-    p x
+    Comment.where(post_id: Post.find_by(title:).id).order(created_at: :desc).limit(5)
   end
 
   after_save :update_post_counter
