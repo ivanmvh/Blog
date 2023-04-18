@@ -45,20 +45,19 @@ RSpec.describe 'users_index', type: :system do
 
   # end
 
-  # it '5-When I click on [Add a post], I am redirected to posts new page' do
-  #  @user1 = User.create(name: 'John U Index',
-  #                       photo: '1-photo.jpg', bio: 'Complete bio John U Index', posts_counter: 0)
-  #  @user2 = User.create(name: 'Pet U Index',
-  #                       photo: '2-photo.jpg', bio: 'Complete bio Pet U Index', posts_counter: 1)
-  #  @user3 = User.create(name: 'Jesus U Index',
-  #                       photo: '3-photo.jpg', bio: 'Complete bio Jesus U Index',
-  #                       posts_counter: 2)
-  #
-  #  visit users_path
-  #  first_link = page.all(:link, 'Add a post')[0] # Obtener el segundo link
-  # click_link ('Add a post')
-  # p page
-  #  click_link(href: first_link['href'])
-  #  expect(page) == "#{users_path}/#{@user1.id}/posts/new"
-  # end
+  it '5-When I click on [Add a post], I am redirected to posts new page' do
+    @user1 = User.create(name: 'John U Index',
+                         photo: '1-photo.jpg', bio: 'Complete bio John U Index', posts_counter: 0)
+    @user2 = User.create(name: 'Pet U Index',
+                         photo: '2-photo.jpg', bio: 'Complete bio Pet U Index', posts_counter: 1)
+    @user3 = User.create(name: 'Jesus U Index',
+                         photo: '3-photo.jpg', bio: 'Complete bio Jesus U Index',
+                         posts_counter: 2)
+
+    visit users_path
+
+    all(:link, 'Add a post', exact_text: true)[1].click
+    p page
+    expect(page) == "#{users_path}/#{@user1.id}/posts/new"
+  end
 end
