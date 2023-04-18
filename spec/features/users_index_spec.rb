@@ -61,5 +61,4 @@ RSpec.describe 'users_index', type: :system do
   #  click_link(href: first_link['href'])
   #  expect(page) == "#{users_path}/#{@user1.id}/posts/new"
   # end
-
 end
