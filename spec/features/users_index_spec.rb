@@ -55,8 +55,8 @@ RSpec.describe 'users_index', type: :system do
 
     all(:link, 'Add a post', exact_text: true)[1].click
 
-    #first_link = all(:link, 'Add a post')[0] 
-    #first_link.click
+    # first_link = all(:link, 'Add a post')[0]
+    # first_link.click
 
     expect(page) == "#{users_path}/#{@user1.id}/posts/new"
   end
