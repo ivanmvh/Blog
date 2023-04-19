@@ -22,7 +22,6 @@ In this project, we will add the [devise](https://github.com/heartcombo/devise) 
 ### Need a big picture?
 
 Remind me about the big picture of this project.
-***image**
 
 ### General requirements (Don't forget this!)
 
