@@ -150,19 +150,13 @@ li {
   font-style: italic;
 }
 
-.field {
-  width: 80%;
-}
-
-/* ----------------------------- */
-
 .new_user {
   margin: auto;
 }
 
 .field {
   margin: auto;
-  margin: 20px auto 5px auto
+  margin: 20px auto 5px auto;
 }
 
 .logIn {
@@ -180,17 +174,16 @@ li {
 
 .buttonSignUp {
   display: block;
-  /* width: 117px; */
   width: 60%;
   margin: auto;
-  margin: 30px auto 10px auto
+  margin: 30px auto 10px auto;
 }
 
 .buttonResetPassword {
   display: block;
   width: 60%;
   margin: auto;
-  margin: 30px auto 10px auto
+  margin: 30px auto 10px auto;
 }
 
 .titleFrgotPassword {
@@ -205,7 +198,7 @@ li {
   display: block;
   width: 60%;
   margin: auto;
-  margin: 30px auto 10px auto
+  margin: 30px auto 10px auto;
 }
 
 .confirmInstructions {
@@ -248,7 +241,6 @@ li {
 
 .LinkSignUp {
   display: block;
-  /* width: 62px; */
   width: 90%;
   margin: 0 auto 0 auto;
 }
