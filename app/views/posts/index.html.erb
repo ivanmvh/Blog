@@ -1,5 +1,5 @@
-<h1>Posts List</h1>
-<%= render 'users/user_card', user: @posts[0].author %>
+<%= render('registrations/navbar') %>
+<%= render 'users/user_card', user: @user %>
 <ul>
   <% @posts.all.each_with_index do |post, i| %>
   <% comments = Post.recent_comments(post.title) %>
