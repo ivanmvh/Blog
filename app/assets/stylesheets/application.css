@@ -15,6 +15,9 @@
  */
 
 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-size: 3.5vw;
 }
 
@@ -31,7 +34,7 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: black;
 }
 
@@ -148,15 +151,39 @@ li {
 .notice {
   color: red;
   font-style: italic;
+  margin-left: 70px;
+}
+
+.my_container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+
+.my_container > a {
+  margin-left:50px;
+  margin-right: 50px;
+}
+
+.my_container > h2 {
+  margin-left:50px;
+  margin-right: 50px;
 }
 
 .new_user {
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left:50px;
+  margin-right: 50px;
+  margin-top: 10vw;
+  gap: 4.0vw;
 }
 
 .field {
-  margin: auto;
-  margin: 20px auto 5px auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .logIn {
@@ -174,9 +201,9 @@ li {
 
 .buttonSignUp {
   display: block;
-  width: 60%;
-  margin: auto;
-  margin: 30px auto 10px auto;
+  width: 100%;
+  margin-top: 1.0vw;
+  margin-bottom: 3.0vw;
 }
 
 .buttonResetPassword {
@@ -208,7 +235,7 @@ li {
 }
 
 #user_name {
-  width: 90%;
+  width: 100%;
   border-bottom: 3px solid black;
   border-right: 3px solid black;
   border-left: 1px solid black;
@@ -216,7 +243,7 @@ li {
 }
 
 #user_email {
-  width: 90%;
+  width: 100%;
   border-bottom: 3px solid black;
   border-right: 3px solid black;
   border-left: 1px solid black;
@@ -224,7 +251,7 @@ li {
 }
 
 #user_password {
-  width: 90%;
+  width: 100%;
   border-bottom: 3px solid black;
   border-right: 3px solid black;
   border-left: 1px solid black;
@@ -232,7 +259,7 @@ li {
 }
 
 #user_password_confirmation {
-  width: 90%;
+  width: 100%;
   border-bottom: 3px solid black;
   border-right: 3px solid black;
   border-left: 1px solid black;
@@ -241,7 +268,7 @@ li {
 
 .LinkSignUp {
   display: block;
-  width: 90%;
+  width: 80%;
   margin: 0 auto 0 auto;
 }
 
@@ -259,5 +286,6 @@ li {
 }
 
 .actions {
-  margin: 30px auto 10px auto;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
