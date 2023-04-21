@@ -168,7 +168,7 @@ li {
 }
 
 .my_container > h2 {
-  margin-left:50px;
+  margin-left: 50px;
   margin-right: 50px;
   display: none;
 }
@@ -176,10 +176,10 @@ li {
 .new_user {
   display: flex;
   flex-direction: column;
-  margin-left:50px;
+  margin-left: 50px;
   margin-right: 50px;
   margin-top: 10vw;
-  gap: 4.0vw;
+  gap: 4vw;
 }
 
 .field {
@@ -203,8 +203,8 @@ li {
 .buttonSignUp {
   display: block;
   width: 100%;
-  margin-top: 1.0vw;
-  margin-bottom: 3.0vw;
+  margin-top: 1vw;
+  margin-bottom: 3vw;
 }
 
 .buttonResetPassword {
