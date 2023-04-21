@@ -149,7 +149,7 @@ li {
 
 .alert,
 .notice {
-  color: red;
+  color: black;
   font-style: italic;
   margin-left: 70px;
 }
